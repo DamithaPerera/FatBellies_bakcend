@@ -1,11 +1,11 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const BranchesSchema = new mongoose.Schema(
     {
         branch_name: {
             type: String,
-            required: [true, "please add branch name "],
+            required: [true, 'please add branch name'],
             trim: true,
-            maxlength: [50, "name can not be more than 50 characters"],
+            maxlength: [50, 'name can not be more than 50 characters'],
             text: true, //used when use search
         },
         location: {
