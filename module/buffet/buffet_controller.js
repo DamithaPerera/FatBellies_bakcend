@@ -1,5 +1,5 @@
 const {commonResponse} = require('../../util/response');
-const {addBuffetService, getAllBuffetMealsService} = require('./buffet_service');
+const {addBuffetService, getAllBuffetMealsService, getOneBuffetMealsService} = require('./buffet_service');
 
 
 let response;
@@ -37,12 +37,35 @@ exports.getAllBuffetMealsController = async (req, res, next) => {
             'Buffet meals retrieve successfully',
             null
         );
-        res.status(201).send(response);
+        res.status(200).send(response);
     } catch (err) {
         response = commonResponse(
             true,
             null,
-            'Buffet creation failed',
+            'Buffet meals retrieve failed',
+            err
+        );
+        res.status(400).send(response);
+    }
+}
+
+exports.getOneBuffetMealsController = async (req, res, next) => {
+    try {
+        const buffetMealId= req.params.id;
+        const data = await getOneBuffetMealsService(buffetMealId);
+
+        response = commonResponse(
+            true,
+            data,
+            'Buffet meal retrieve successfully',
+            null
+        );
+        res.status(200).send(response);
+    } catch (err) {
+        response = commonResponse(
+            true,
+            null,
+            'Buffet meal retrieve failed',
             err
         );
         res.status(400).send(response);

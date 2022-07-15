@@ -8,3 +8,9 @@ exports.addBuffetRepo = async (requestBody) => {
 exports.getAllBuffetMealsRepo = async (skip, limit) => {
     return buffetModel.find().skip(skip).limit(limit)
 }
+
+exports.getOneBuffetMealsRepo = async (buffetMealId) => {
+    return buffetModel.findOne({
+        _id: buffetMealId
+    })
+}
