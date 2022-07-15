@@ -3,6 +3,7 @@ const cors = require('cors');
 const dbConnection = require('./config/db');
 
 const branches = require('./module/branches/branches_router');
+const buffet = require('./module/buffet/buffet_router');
 
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
@@ -20,6 +21,7 @@ app.use(express.urlencoded({extended: false}));
 
 
 app.use('/v1/branches', branches);
+app.use('/v1/buffet', buffet);
 
 
 
