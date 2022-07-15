@@ -1,4 +1,9 @@
-const {addBranchesService, viewOneBranchService, viewAllBranchesControllerService} = require('./branches_service')
+const {
+    addBranchesService,
+    viewOneBranchService,
+    viewAllBranchesControllerService,
+    updateBranchService
+} = require('./branches_service')
 const {commonResponse} = require("../../util/response");
 
 
@@ -64,6 +69,30 @@ exports.viewAllBranchesController = async (req, res, next) => {
             true,
             null,
             'Branch retrieved failed',
+            err
+        );
+        res.status(400).send(response);
+    }
+}
+
+exports.updateBranchController = async (req, res, next) => {
+    try {
+        const branchId = req.params.id;
+        const requestBody = req.body;
+        const data = await updateBranchService(branchId, requestBody);
+
+        response = commonResponse(
+            true,
+            data,
+            'Branch update successfully',
+            null
+        );
+        res.status(200).send(response);
+    } catch (err) {
+        response = commonResponse(
+            true,
+            null,
+            'Branch update failed',
             err
         );
         res.status(400).send(response);

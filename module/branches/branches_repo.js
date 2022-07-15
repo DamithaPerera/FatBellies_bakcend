@@ -14,3 +14,9 @@ exports.viewOneBranchRepo = async (branchId) => {
 exports.viewAllBranchesControllerRepo = async () => {
     return branches.find({});
 }
+
+exports.updateBranchRepo = async (branchId, requestBody) => {
+    return branches.findByIdAndUpdate({
+        _id: branchId
+    }, {$set: requestBody},{ upsert: true, new: true, });
+}
