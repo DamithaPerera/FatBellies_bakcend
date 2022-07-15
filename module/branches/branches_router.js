@@ -6,11 +6,12 @@ const {
     viewOneBranchController,
     viewAllBranchesController,
     updateBranchController,
-    deleteBranchController
+    deleteBranchController,
+    searchBranchController
 } = require('./branches_controller');
 
-
 routes.post('/', addBranchesController);
+routes.get('/search', searchBranchController);
 routes.get('/:id', viewOneBranchController);
 routes.get('/', viewAllBranchesController);
 routes.put('/:id', updateBranchController);

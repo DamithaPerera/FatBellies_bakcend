@@ -3,7 +3,8 @@ const {
     viewOneBranchService,
     viewAllBranchesControllerService,
     updateBranchService,
-    deleteBranchService
+    deleteBranchService,
+    searchBranchService
 } = require('./branches_service')
 const {commonResponse} = require("../../util/response");
 
@@ -118,6 +119,29 @@ exports.deleteBranchController = async (req, res, next) => {
             true,
             null,
             'Branch delete failed',
+            err
+        );
+        res.status(400).send(response);
+    }
+}
+
+exports.searchBranchController = async (req, res, next) => {
+    try {
+        const {page, limit, name, price} = req.query
+        const data = await searchBranchService(page, limit, name, price);
+
+        response = commonResponse(
+            true,
+            data,
+            'Search data retrieved successfully',
+            null
+        );
+        res.status(200).send(response);
+    } catch (err) {
+        response = commonResponse(
+            true,
+            null,
+            'Search data retrieved failed',
             err
         );
         res.status(400).send(response);

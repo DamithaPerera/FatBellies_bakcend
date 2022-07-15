@@ -3,7 +3,8 @@ const {
     viewOneBranchRepo,
     viewAllBranchesControllerRepo,
     updateBranchRepo,
-    deleteBranchRepo
+    deleteBranchRepo,
+    searchBranchRepo
 } = require('./branches_repo')
 
 exports.addBranchesService = async (requestBody) => {
@@ -31,4 +32,9 @@ exports.updateBranchService = async (branchId, requestBody) => {
 
 exports.deleteBranchService = async (branchId) => {
     return deleteBranchRepo(branchId)
+}
+
+exports.searchBranchService = async (page, limit, name, price) => {
+    const skip = (page - 1) * limit;
+    return searchBranchRepo(skip, Number(limit), name, price)
 }

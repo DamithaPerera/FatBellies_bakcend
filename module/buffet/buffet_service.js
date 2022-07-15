@@ -34,7 +34,7 @@ exports.deleteBuffetMealService = async (buffetMealId) => {
 
 }
 
-exports.assignBuffetToBranchService = async (requestBody) => {
-    return assignBuffetToBranchRepo(requestBody)
+exports.assignBuffetToBranchService = async (branch_id, buffet_id) => {
+    return assignBuffetToBranchRepo(branch_id, buffet_id)
 
 }

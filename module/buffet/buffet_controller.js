@@ -128,8 +128,8 @@ exports.deleteBuffetMealController = async (req, res, next) => {
 
 exports.assignBuffetToBranchController = async (req, res, next) => {
     try {
-        const requestBody = req.body;
-        const data = await assignBuffetToBranchService(requestBody);
+        const {branch_id, buffet_id} = req.body;
+        const data = await assignBuffetToBranchService(branch_id, buffet_id);
 
         response = commonResponse(
             true,

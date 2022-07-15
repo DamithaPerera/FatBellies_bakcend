@@ -17,6 +17,7 @@ const BranchesSchema = new mongoose.Schema(
             },
             coordinates: {
                 type: [Number],
+                index: '2dsphere',
                 required: false,
             },
         },
@@ -53,6 +54,9 @@ const BranchesSchema = new mongoose.Schema(
                 }
             }
         ],
+        buffet_meal: {
+            type: Array
+        }
     },
     {timestamps: true}
 );

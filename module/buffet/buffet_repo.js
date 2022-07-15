@@ -1,5 +1,5 @@
 const buffetModel = require('../../models/buffet_meal');
-const buffetBranchModel = require('../../models/branch_buffet');
+const branchModel = require('../../models/branches');
 
 
 exports.addBuffetRepo = async (requestBody) => {
@@ -28,6 +28,8 @@ exports.deleteBuffetRepo = async (buffetMealId) => {
     })
 }
 
-exports.assignBuffetToBranchRepo = async (requestBody) => {
-    return buffetBranchModel.create(requestBody)
+exports.assignBuffetToBranchRepo = async (branch_id, buffet_id) => {
+    return branchModel.findByIdAndUpdate({
+        _id: branch_id
+    }, {"$push": {buffet_meal: buffet_id}}, {new: true})
 }
