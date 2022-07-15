@@ -4,7 +4,8 @@ const {
     getAllBuffetMealsService,
     getOneBuffetMealsService,
     updateBuffetMealService,
-    deleteBuffetMealService
+    deleteBuffetMealService,
+    assignBuffetToBranchService
 } = require('./buffet_service');
 
 
@@ -119,6 +120,29 @@ exports.deleteBuffetMealController = async (req, res, next) => {
             true,
             null,
             'Buffet meal delete failed',
+            err
+        );
+        res.status(400).send(response);
+    }
+}
+
+exports.assignBuffetToBranchController = async (req, res, next) => {
+    try {
+        const requestBody = req.body;
+        const data = await assignBuffetToBranchService(requestBody);
+
+        response = commonResponse(
+            true,
+            data,
+            'Buffet meal assign to branch successfully',
+            null
+        );
+        res.status(200).send(response);
+    } catch (err) {
+        response = commonResponse(
+            true,
+            null,
+            'Buffet meal assign to branch failed',
             err
         );
         res.status(400).send(response);

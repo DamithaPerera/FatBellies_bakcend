@@ -6,7 +6,8 @@ const {
     getAllBuffetMealsController,
     getOneBuffetMealsController,
     updateBuffetMealController,
-    deleteBuffetMealController
+    deleteBuffetMealController,
+    assignBuffetToBranchController
 } = require('./buffet_controller');
 
 
@@ -15,6 +16,7 @@ routes.get('/', getAllBuffetMealsController);
 routes.get('/:id', getOneBuffetMealsController);
 routes.put('/:id', updateBuffetMealController);
 routes.delete('/:id', deleteBuffetMealController);
+routes.post('/assign', assignBuffetToBranchController);
 
 
 module.exports = routes;

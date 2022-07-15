@@ -18,7 +18,7 @@ exports.viewAllBranchesControllerRepo = async (skip, limit) => {
 exports.updateBranchRepo = async (branchId, requestBody) => {
     return branches.findByIdAndUpdate({
         _id: branchId
-    }, {$set: requestBody},{ upsert: true, new: true, });
+    }, {$set: requestBody}, {new: true});
 }
 
 exports.deleteBranchRepo = async (branchId) => {

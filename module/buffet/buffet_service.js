@@ -3,7 +3,8 @@ const {
     getAllBuffetMealsRepo,
     getOneBuffetMealsRepo,
     updateBuffetMealRepo,
-    deleteBuffetRepo
+    deleteBuffetRepo,
+    assignBuffetToBranchRepo
 } = require('./buffet_repo');
 
 
@@ -30,5 +31,10 @@ exports.updateBuffetMealService = async (buffetMealId, requestBody) => {
 
 exports.deleteBuffetMealService = async (buffetMealId) => {
     return deleteBuffetRepo(buffetMealId)
+
+}
+
+exports.assignBuffetToBranchService = async (requestBody) => {
+    return assignBuffetToBranchRepo(requestBody)
 
 }

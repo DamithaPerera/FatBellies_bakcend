@@ -6,7 +6,7 @@ const BranchBuffetSchema = new mongoose.Schema(
             required: [true, 'please add branch Id'],
         },
         buffet_id: {
-            type: Number,
+            type: String,
             required: [true, 'please add buffet Id'],
         },
     },
