@@ -2,18 +2,12 @@ const mongoose = require("mongoose");
 
 const BranchesSchema = new mongoose.Schema(
     {
-        productName: {
+        branch_name: {
             type: String,
-            required: [true, "please add product name "],
+            required: [true, "please add branch name "],
             trim: true,
             maxlength: [50, "name can not be more than 50 characters"],
             text: true, //used when use search
-        },
-        price: {
-            type: Number,
-            required: true,
-            trim: true,
-            maxlength: [32, "price can not be more than 32 characters"],
         },
         location: {
             type: {
