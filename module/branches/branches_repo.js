@@ -11,8 +11,8 @@ exports.viewOneBranchRepo = async (branchId) => {
     })
 }
 
-exports.viewAllBranchesControllerRepo = async () => {
-    return branches.find({});
+exports.viewAllBranchesControllerRepo = async (skip, limit) => {
+    return branches.find({}).skip(skip).limit(limit)
 }
 
 exports.updateBranchRepo = async (branchId, requestBody) => {

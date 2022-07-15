@@ -17,8 +17,9 @@ exports.viewOneBranchService = async (branchId) => {
     return viewOneBranchRepo(branchId)
 }
 
-exports.viewAllBranchesControllerService = async () => {
-    return viewAllBranchesControllerRepo()
+exports.viewAllBranchesControllerService = async (page, limit) => {
+    const skip = (page - 1) * limit;
+    return viewAllBranchesControllerRepo(skip, Number(limit))
 }
 
 exports.updateBranchService = async (branchId, requestBody) => {

@@ -57,7 +57,8 @@ exports.viewOneBranchController = async (req, res, next) => {
 
 exports.viewAllBranchesController = async (req, res, next) => {
     try {
-        const data = await viewAllBranchesControllerService();
+        const {page, limit} = req.query
+        const data = await viewAllBranchesControllerService(page, limit);
         response = commonResponse(
             true,
             data,
