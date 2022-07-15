@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
-const dbConnection = require('./config/db')
+const dbConnection = require('./config/db');
+
+const branches = require('./module/branches/branches_router');
 
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
@@ -17,6 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 
+app.use('/v1/branches', branches);
 
 
 
