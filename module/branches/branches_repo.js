@@ -10,3 +10,7 @@ exports.viewOneBranchRepo = async (branchId) => {
         _id: branchId
     })
 }
+
+exports.viewAllBranchesControllerRepo = async () => {
+    return branches.find({});
+}

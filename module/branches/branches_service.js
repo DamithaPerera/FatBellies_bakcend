@@ -1,4 +1,4 @@
-const {addBranchesRepo, viewOneBranchRepo} = require('./branches_repo')
+const {addBranchesRepo, viewOneBranchRepo, viewAllBranchesControllerRepo} = require('./branches_repo')
 
 exports.addBranchesService = async (requestBody) => {
 
@@ -9,5 +9,8 @@ exports.addBranchesService = async (requestBody) => {
 
 exports.viewOneBranchService = async (branchId) => {
     return viewOneBranchRepo(branchId)
+}
 
+exports.viewAllBranchesControllerService = async () => {
+    return viewAllBranchesControllerRepo()
 }
