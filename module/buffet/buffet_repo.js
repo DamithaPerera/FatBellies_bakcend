@@ -20,3 +20,9 @@ exports.updateBuffetMealRepo = async (buffetMealId, requestBody) => {
         _id: buffetMealId
     }, {$set: requestBody}, {new: true})
 }
+
+exports.deleteBuffetRepo = async (buffetMealId) => {
+    return buffetModel.deleteOne({
+        _id: buffetMealId
+    })
+}

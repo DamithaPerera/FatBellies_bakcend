@@ -3,7 +3,8 @@ const {
     addBuffetService,
     getAllBuffetMealsService,
     getOneBuffetMealsService,
-    updateBuffetMealService
+    updateBuffetMealService,
+    deleteBuffetMealService
 } = require('./buffet_service');
 
 
@@ -95,6 +96,29 @@ exports.updateBuffetMealController = async (req, res, next) => {
             true,
             null,
             'Buffet meal update failed',
+            err
+        );
+        res.status(400).send(response);
+    }
+}
+
+exports.deleteBuffetMealController = async (req, res, next) => {
+    try {
+        const buffetMealId = req.params.id;
+        await deleteBuffetMealService(buffetMealId);
+
+        response = commonResponse(
+            true,
+            null,
+            'Buffet meal delete successfully',
+            null
+        );
+        res.status(200).send(response);
+    } catch (err) {
+        response = commonResponse(
+            true,
+            null,
+            'Buffet meal delete failed',
             err
         );
         res.status(400).send(response);
