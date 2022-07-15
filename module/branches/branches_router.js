@@ -5,7 +5,8 @@ const {
     addBranchesController,
     viewOneBranchController,
     viewAllBranchesController,
-    updateBranchController
+    updateBranchController,
+    deleteBranchController
 } = require('./branches_controller');
 
 
@@ -13,6 +14,7 @@ routes.post('/', addBranchesController);
 routes.get('/:id', viewOneBranchController);
 routes.get('/', viewAllBranchesController);
 routes.put('/:id', updateBranchController);
+routes.delete('/:id', deleteBranchController);
 
 
 module.exports = routes;

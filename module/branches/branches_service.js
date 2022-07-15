@@ -1,4 +1,10 @@
-const {addBranchesRepo, viewOneBranchRepo, viewAllBranchesControllerRepo, updateBranchRepo} = require('./branches_repo')
+const {
+    addBranchesRepo,
+    viewOneBranchRepo,
+    viewAllBranchesControllerRepo,
+    updateBranchRepo,
+    deleteBranchRepo
+} = require('./branches_repo')
 
 exports.addBranchesService = async (requestBody) => {
 
@@ -20,4 +26,8 @@ exports.updateBranchService = async (branchId, requestBody) => {
         requestBody['location.coordinates'] = requestBody.coordinates
     }
     return updateBranchRepo(branchId, requestBody)
+}
+
+exports.deleteBranchService = async (branchId) => {
+    return deleteBranchRepo(branchId)
 }

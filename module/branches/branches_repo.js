@@ -20,3 +20,9 @@ exports.updateBranchRepo = async (branchId, requestBody) => {
         _id: branchId
     }, {$set: requestBody},{ upsert: true, new: true, });
 }
+
+exports.deleteBranchRepo = async (branchId) => {
+    return branches.deleteOne({
+        _id: branchId
+    });
+}
