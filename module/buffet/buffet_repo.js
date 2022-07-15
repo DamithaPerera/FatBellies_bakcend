@@ -14,3 +14,9 @@ exports.getOneBuffetMealsRepo = async (buffetMealId) => {
         _id: buffetMealId
     })
 }
+
+exports.updateBuffetMealRepo = async (buffetMealId, requestBody) => {
+    return buffetModel.findByIdAndUpdate({
+        _id: buffetMealId
+    }, {$set: requestBody}, {new: true})
+}

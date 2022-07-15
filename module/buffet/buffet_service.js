@@ -1,4 +1,4 @@
-const {addBuffetRepo, getAllBuffetMealsRepo, getOneBuffetMealsRepo} = require('./buffet_repo');
+const {addBuffetRepo, getAllBuffetMealsRepo, getOneBuffetMealsRepo, updateBuffetMealRepo} = require('./buffet_repo');
 
 
 exports.addBuffetService = async (requestBody) => {
@@ -14,5 +14,10 @@ exports.getAllBuffetMealsService = async (page, limit) => {
 
 exports.getOneBuffetMealsService = async (buffetMealId) => {
     return getOneBuffetMealsRepo(buffetMealId)
+
+}
+
+exports.updateBuffetMealService = async (buffetMealId, requestBody) => {
+    return updateBuffetMealRepo(buffetMealId, requestBody)
 
 }

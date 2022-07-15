@@ -4,13 +4,15 @@ const routes = Router();
 const {
     addBuffetController,
     getAllBuffetMealsController,
-    getOneBuffetMealsController
+    getOneBuffetMealsController,
+    updateBuffetMealController
 } = require('./buffet_controller');
 
 
 routes.post('/', addBuffetController);
 routes.get('/', getAllBuffetMealsController);
 routes.get('/:id', getOneBuffetMealsController);
+routes.put('/:id', updateBuffetMealController);
 
 
 
