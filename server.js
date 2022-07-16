@@ -23,6 +23,34 @@ app.use(express.urlencoded({extended: false}));
 app.use('/v1/branches', branches);
 app.use('/v1/buffet', buffet);
 
+//swagger documentation
+//swagger options
+const options = {
+    definition: {
+        openapi: '3.0.0',
+        info: {
+            title: 'FatBellies project',
+            version: '1.0.0',
+            description:
+                'Backend server build with node js and mongo db using rest api',
+            contact: {
+                name: 'Damitha Perera',
+                email: 'damithaperera777@gmail.com',
+            },
+        },
+
+        servers: [
+            {
+                url: 'http://localhost:3000/v1',
+                description: 'Development server',
+            }
+        ]
+    },
+    apis: ['./module/branches/branches_router.js', './module/buffet/buffet_router.js'],
+};
+const specs = swaggerJsDoc(options);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+
 
 
 
