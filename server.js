@@ -8,7 +8,7 @@ const buffet = require('./module/buffet/buffet_router');
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
-const port = 3000;
+const PORT = 3000;
 const app = express();
 
 
@@ -55,7 +55,7 @@ app.get('/', (req, res)=> {
     res.send('deployed')
 })
 
-app.listen(port, () =>
+app.listen(process.env.PORT || PORT, () =>
     console.log(`🚀 Server ready at http://localhost:3000`),
 );
 
