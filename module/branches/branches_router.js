@@ -10,12 +10,19 @@ const {
     searchBranchController
 } = require('./branches_controller');
 
-routes.post('/', addBranchesController);
-routes.get('/search', searchBranchController);
-routes.get('/:id', viewOneBranchController);
-routes.get('/', viewAllBranchesController);
-routes.put('/:id', updateBranchController);
-routes.delete('/:id', deleteBranchController);
+const {
+    addBranchesValidation,
+    viewAllBranchesValidation,
+    getOneBranchValidation,
+    searchBranchesValidation
+} = require('./branches_validation');
+
+routes.post('/', addBranchesValidation, addBranchesController);
+routes.get('/search', searchBranchesValidation, searchBranchController);
+routes.get('/all', viewAllBranchesValidation, viewAllBranchesController);
+routes.get('/:id', getOneBranchValidation, viewOneBranchController);
+routes.put('/:id', addBranchesValidation, updateBranchController);
+routes.delete('/:id', getOneBranchValidation, deleteBranchController);
 
 
 module.exports = routes;
