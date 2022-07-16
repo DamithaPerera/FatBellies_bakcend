@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/DamithaPerera/FatBellies_bakcend#readme",
   "engines": {
-    "npm": ">=7.21.1",
-    "node": ">=14.17.6"
+    "npm": "7.21.1",
+    "node": "14.17.6"
   },
   "dependencies": {
     "cors": "^2.8.5",
