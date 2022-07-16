@@ -51,6 +51,9 @@ const options = {
 const specs = swaggerJsDoc(options);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
+app.get('/', (req, res)=> {
+    res.send('deployed')
+})
 
 app.listen(port, () =>
     console.log(`🚀 Server ready at http://localhost:3000`),
